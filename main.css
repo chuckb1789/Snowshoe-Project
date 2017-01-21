@@ -1,0 +1,160 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,900);
+
+.body {
+  background-color: rgb(83,68,73);
+  float: center;
+  text-align: center;
+}
+.navbar {
+  border-color: rgb(83,68,73);
+}
+#brand {
+  font-size: .5vw;
+  display: inline-block;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  float: center;
+  text-align: center;
+  margin: auto;
+
+}
+.collapse {
+  border-color: rgb(83,68,73);
+}
+.information {
+  display: inline-block;
+  position: relative;
+  background-color: gray;
+  height: 20%;
+  width: 20%;
+}
+
+.CurrentWeather {
+  display: inline-block;
+  position: absolute;
+  background-color: gray;
+
+}
+
+.body {
+  background-color: rgb(83,68,73);
+}
+.square {
+    float:left;
+    position: relative;
+    width: 30%;
+    padding-bottom : 30%; /* = width for a 1:1 aspect ratio */
+    margin:1.66%;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
+}
+
+.img_1-1 { background-image:url('./images/crestedButteNT.png');
+transition: all 0.9s;
+}
+.img_1-1:hover {
+  background-image:url('./images/crestedButte.png');
+}
+.img_1-1CB {
+  background-image:url('./images/crestedButte.png');
+}
+.img_1-2 {
+  background-image:url('./images/kenoshaPassNT.png');
+  transition: all 0.9s;
+}
+.img_1-2:hover {
+  background-image:url('./images/kenoshaPass.png');
+}
+.img_1-3 {
+  background-image:url('./images/mosquitoPassNT.png');
+  transition: all 0.9s;
+}
+.img_1-3:hover {
+  background-image:url('./images/mosquitoPass.png');
+}
+.img_2-1 {
+  background-image:url('./images/rmnpNT.png');
+  transition: all 0.9s;
+}
+
+.img_2-1:hover {
+  background-image:url('./images/rmnp.png');
+}
+
+.img_2-2 {
+  background-image:url('./images/main2.png');
+}
+
+.img_2-3 {
+  background-image:url('./images/friscoNT.png');
+  transition: all 0.9s;
+}
+
+.img_2-3:hover {
+  background-image:url('./images/frisco.png');
+}
+.img_3-1 {
+  background-image:url('./images/winterParkNT.png');
+  transition: all 0.9s;
+}
+.img_3-1:hover {
+  background-image:url('./images/winterPark.png');
+}
+.img_3-2 {
+  background-image:url('./images/indianPeaksNT.png');
+  transition: all 0.9s;
+}
+.img_3-2:hover {
+  background-image:url('./images/indianPeaks.png');
+}
+.img_3-3{
+  background-image:url('./images/steamboatSpringsNT.png');
+  transition: all 0.9s;
+}
+.img_3-3:hover {
+  background-image:url('./images/steamboatSprings.png');
+}
+.discover {
+  display: inline-block;
+  background-image: url('./images/discoverHoverOff.png');
+  transition: all 0.5s;
+}
+.discover:hover {
+  background-image:url('./images/discoverHoverOn.png');
+}
+
+.find {
+  display: inline-block;
+  background-image: url('./images/findHoverOff.png');
+}
+.find:hover {
+  background-image:url('./images/findHoverOn.png');
+  transition: all 0.5s;
+}
+
+.title {
+  display: block;
+  background-image: url('./images/title.png');
+}
+
+.titleCenter {
+  text-align: center;
+  position: relative;
+  width: 92.5%;
+  padding-bottom: 30%;
+  margin: 5%;
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-size: cover;
+}
+.center {
+  float: center;
+  position: relative;
+  width: 30%;
+  padding-bottom : 30%; /* = width for a 1:1 aspect ratio */
+  margin:1.66%;
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
+}

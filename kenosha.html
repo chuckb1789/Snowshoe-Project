@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html ng-app='snowApp'>
+  <head <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="apple-touch-icon" sizes="57x57" href="./favicon.ico/apple-icon-57x57.png">
+      <link rel="apple-touch-icon" sizes="60x60" href="./favicon.ico/apple-icon-60x60.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="./favicon.ico/apple-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="76x76" href="./favicon.ico/apple-icon-76x76.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="./favicon.ico/apple-icon-114x114.png">
+      <link rel="apple-touch-icon" sizes="120x120" href="./favicon.ico/apple-icon-120x120.png">
+      <link rel="apple-touch-icon" sizes="144x144" href="./favicon.ico/apple-icon-144x144.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="./favicon.ico/apple-icon-152x152.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="./favicon.ico/apple-icon-180x180.png">
+      <link rel="icon" type="image/png" sizes="192x192"  href="./favicon.ico/android-icon-192x192.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="./favicon.ico/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="96x96" href="./favicon.ico/favicon-96x96.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="./favicon.ico/favicon-16x16.png">
+      <link rel="manifest" href="/manifest.json">
+      <meta name="msapplication-TileColor" content="#ffffff">
+      <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+      <meta name="theme-color" content="#ffffff">
+      <meta charset="utf-8">
+      <!--Name of the Application-->
+      <title>Snowshoe App</title>
+      <!-- Normalize the style. -->
+      <link rel=stylesheet type='text/css'href="./normalize.css">
+      <!-- Latest compiled and minified CSS -->
+      <link   rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <!--Add angular framwork to HTML-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+      <!--connect Angular to HTML-->
+      <script src="./kenosha.js"></script>
+      <!-- First include jquery js -->
+      <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+      <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <!--Linked main.css page to HTML-->
+      <link rel='stylesheet' type='text/css'href='./discoverTiles.css'>
+    </head>
+    <body class="body" ng-controller='snowController as snowCtrl'>
+          <nav class="body navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="NAVBAR">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav" id='brand'>
+                <a id='projectSnowshoe' href="./index.html"><img width=30%; src="./images/PROJECTSNOWSHOE.png" ></img></a>
+                <a id='findIcon' href="./find.html"><img width=30%; src="./images/FINDBUTTON.png"></img></a>
+                <a href="./discover.html"><img width=30%; src="./images/discoverIcon.png"></img></a>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </div>
+        </nav>
+      <div  ng-init='snowCtrl.getWeather()'class="square dimg_1-1">
+        <div class="content">
+          <div class="table">
+            <div class="table-cell numbers">
+                  {{snowCtrl.currently.apparentTemperature}}&deg;F
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="square dimg_1-2">
+        <div class="content">
+          <div class="table">
+            <div class="table-cell">
+              <p class='summary'>{{snowCtrl.weather.summary}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="square dimg_1-3">
+          <div class="content">
+            <div class="table">
+              <div class="table-cell twoNumbers">
+                 High: {{snowCtrl.daily.apparentTemperatureMax}}&deg;F
+                 <br></br>
+                 Low: {{snowCtrl.daily.apparentTemperatureMin}}&deg;F
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2nd row verticaly centered images in square columns -->
+
+        <div class="square dimg_2-1">
+          <div class="content">
+            <div class="table">
+              <div class="table-cell numbers">
+                {{snowCtrl.currently.visibility}} mi.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="square img_2-2Kenosha">
+        </div>
+        <div class="square dimg_2-3">
+          <div class="content">
+            <div class="table">
+              <div class="table-cell conditions">
+                 {{snowCtrl.avalanche.title}}
+                 <br></br>
+                <a class='conditions' href='{{snowCtrl.avalanche.uri}}'>More Info</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3rd row responsive images in background with centered content -->
+
+        <div ng-init='snowCtrl.getSnow()' class="square dimg_3-1">
+          <div class="content">
+            <div class="table">
+              <div class="table-cell numbers">
+                 {{snowCtrl.snow.lowersnow_in}}in.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="square dimg_3-2">
+          <div class="content">
+            <div class="table">
+              <div class="table-cell numbers">
+                 {{snowCtrl.snow.newsnow_in}}in.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="square dimg_3-3">
+          <div class="content">
+            <div class="table">
+              <div class="table-cell numbers snowConditions">
+                 {{snowCtrl.snow.conditions}}
+              </div>
+            </div>
+          </div>
+        </div>
+  </body>
+</html>
