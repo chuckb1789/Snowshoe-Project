@@ -1,0 +1,25 @@
+{
+  "name": "snowshoeproject",
+  "version": "1.0.0",
+  "description": "snowshoe application",
+  "main": "main.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chuckb1789/Snowshoe-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chuckb1789/Snowshoe-Project/issues"
+  },
+  "homepage": "https://github.com/chuckb1789/Snowshoe-Project#readme",
+  "dependencies": {
+    "node": "0.0.0"
+  }
+}
