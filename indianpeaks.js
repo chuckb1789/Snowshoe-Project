@@ -12,7 +12,7 @@ function snowFunction($http) {
     snowCtrl.weather=[];
 
     snowCtrl.getWeather = function () {
-     var url =window.location.protocol+'//'+window.location.host+'/forecast/39.9614, -105.5108'
+     var url =window.location.protocol+'//'+window.location.host+'/forecast/39.9614,-105.5108'
      console.log("looking for", snowCtrl.currently, "at", url);
      $http.get(url)
          .then(function success(response) {
