@@ -12,8 +12,7 @@ function snowFunction($http) {
     snowCtrl.weather=[];
 
     snowCtrl.getWeather = function () {
-    var APIKEY =process.env.APIKEY
-    var url ='https://api.darksky.net/forecast/'+APIKEY+'/39.2814,-106.1861'
+    var url ='http://www.projectsnowshoe.com/forecast/39.2814,-106.1861'
     console.log("looking for", snowCtrl.currently, "at", url);
     $http.get(url)
         .then(function success(response) {
