@@ -29,19 +29,19 @@ function snowFunction($http) {
       };
 
      snowCtrl.getSnow = function () {
-        var ID = process.env.ID
-        var APIKEY2 = process.env.APIKEY2
-        var url = 'https://api.weatherunlocked.com/api/snowreport/303007?app_id='+ID+'&app_key='+APIKEY2
-        console.log("making http request")
-        $http.get(url)
-            .then(function (response) {
-                console.log(response.data)
-                snowCtrl.snow = response.data
-                console.log(snowCtrl.snow)
-
-            },
-            function failure(response) {
-                console.log("ERROR", response)
-            })
-          }
+        // var ID = process.env.ID
+        // var APIKEY2 = process.env.APIKEY2
+        // var url = 'https://api.weatherunlocked.com/api/snowreport/303007?app_id='+ID+'&app_key='+APIKEY2
+        // console.log("making http request")
+        // $http.get(url)
+        //     .then(function (response) {
+        //         console.log(response.data)
+        //         snowCtrl.snow = response.data
+        //         console.log(snowCtrl.snow)
+        //
+        //     },
+        //     function failure(response) {
+        //         console.log("ERROR", response)
+        //     })
+        //   }
 }
