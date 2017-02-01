@@ -7,6 +7,7 @@ var APIKEY =process.env.APIKEY
 
 crestedURL = 'https://api.darksky.net/forecast/'+APIKEY+'/38.911024,-107.031255';
 
+
 friscoURL = 'https://api.darksky.net/forecast/'+APIKEY+'/39.7292,-105.9047';
 
 indianPeaksURL = 'https://api.darksky.net/forecast/'+APIKEY+'/39.9614, -105.5108';
