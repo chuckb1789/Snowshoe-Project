@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/chuckb1789/Snowshoe-Project#readme",
   "dependencies": {
-    "node": "0.0.0"
+    "express": "^4.14.1",
+    "node": "0.0.0",
+    "request": "^2.79.0"
   }
 }

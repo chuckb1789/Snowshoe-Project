@@ -2,7 +2,7 @@ var express = require('express')
 var app = express()
 var request = require('request');
 
-
+var APP_DIR=process.env.APP_DIR
 var APIKEY =process.env.APIKEY
 
 crestedURL = 'https://api.darksky.net/forecast/'+APIKEY+'/38.911024,-107.031255';
