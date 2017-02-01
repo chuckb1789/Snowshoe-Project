@@ -28,7 +28,7 @@ function snowFunction($http) {
         })
       };
 
-     snowCtrl.getSnow = function () {
+    //  snowCtrl.getSnow = function () {
         // var ID = process.env.ID
         // var APIKEY2 = process.env.APIKEY2
         // var url = 'https://api.weatherunlocked.com/api/snowreport/303021?app_id='+ID+'&app_key='+APIKEY2
@@ -44,4 +44,8 @@ function snowFunction($http) {
         //         console.log("ERROR", response)
         //     })
         //   }
+
+  snowCtrl.getSnow = function () {
+           snowCtrl.snow = ""
+         }
 }
