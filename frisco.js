@@ -21,7 +21,7 @@ function snowFunction($http) {
            snowCtrl.currently = response.data.currently} else {snowCtrl.currently=''}
            if (response.data.hourly){snowCtrl.weather = response.data.hourly} else {snowCtrl.weather = ''}
            snowCtrl.daily = response.data.daily.data[0]
-           if (response.daily.alerts){snowCtrl.avalanche = response.data.alerts[0]} else {snowCtrl.avalanche=''}
+           if (response.data.alerts){snowCtrl.avalanche = response.data.alerts[0]} else {snowCtrl.avalanche=''}
 
        },
        function failure(response) {
