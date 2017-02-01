@@ -69,13 +69,13 @@ app.get('/forecast/40.3292,-105.5933', function(req,res) {
 
 
 //==================ROUTE FOR STEAMBOAT SPRINGS==============
-app.get('/forecast//40.3847,-106.6117', function(req,res) {
+app.get('/forecast/40.3847,-106.6117', function(req,res) {
     request.get(steamboatURL,function(error,response,body){
     res.send(body) }) })
 
 
 //==================ROUTE FOR WINTER PARK====================
-app.get('/forecast//39.8472,-105.9117', function(req,res) {
+app.get('/forecast/39.8472,-105.9117', function(req,res) {
     request.get(wpURL,function(error,response,body){
     res.send(body) }) })
 

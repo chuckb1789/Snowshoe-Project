@@ -12,21 +12,22 @@ function snowFunction($http) {
     snowCtrl.weather=[];
 
     snowCtrl.getWeather = function () {
-    var url ='http://www.projectsnowshoe.com/forecast/39.8472,-105.9117'
-    console.log("looking for", snowCtrl.currently, "at", url);
-    $http.get(url)
-        .then(function success(response) {
-            console.log(response.data)
-            snowCtrl.currently = response.data.currently
-            snowCtrl.weather = response.data.hourly
-            snowCtrl.daily = response.data.daily.data[0]
-            snowCtrl.avalanche = response.data.alerts[0]
+     var url =window.location.protocol+'//'+window.location.host+'/forecast/39.8472,-105.9117'
+     console.log("looking for", snowCtrl.currently, "at", url);
+     $http.get(url)
+         .then(function success(response) {
+             console.log(response.data)
+             if (response.data.currently){
+             snowCtrl.currently = response.data.currently} else {snowCtrl.currently=''}
+             if (response.data.hourly){snowCtrl.weather = response.data.hourly} else {snowCtrl.weather = ''}
+             if (response.daily.data){snowCtrl.daily = response.data.daily.data[0]} else {snowCtrl.daily = ''}
+             if (response.daily.alerts){snowCtrl.avalanche = response.data.alerts[0]} else {snowCtrl.avalanche=''}
 
-        },
-        function failure(response) {
-            console.log("ERROR", response)
-        })
-      };
+         },
+         function failure(response) {
+             console.log("ERROR", response)
+         })
+       };
 
     //  snowCtrl.getSnow = function () {
         // var ID = process.env.ID
