@@ -5,6 +5,12 @@ var request = require('request');
 var APP_DIR=process.env.APP_DIR
 var APIKEY =process.env.APIKEY
 
+//logging middleware
+
+var logger = require('morgan')
+app.use(logger('dev'))
+
+//=================ROUTE VARIABLES==========================
 crestedURL = 'https://api.darksky.net/forecast/'+APIKEY+'/38.911024,-107.031255';
 
 
