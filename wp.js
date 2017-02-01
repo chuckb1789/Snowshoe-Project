@@ -20,8 +20,8 @@ function snowFunction($http) {
              if (response.data.currently){
              snowCtrl.currently = response.data.currently} else {snowCtrl.currently=''}
              if (response.data.hourly){snowCtrl.weather = response.data.hourly} else {snowCtrl.weather = ''}
-             if (response.daily.data){snowCtrl.daily = response.data.daily.data[0]} else {snowCtrl.daily = ''}
-             if (response.daily.alerts){snowCtrl.avalanche = response.data.alerts[0]} else {snowCtrl.avalanche=''}
+             snowCtrl.daily = response.data.daily.data[0]
+             if (response.daily){snowCtrl.avalanche = response.data.alerts[0]} else {snowCtrl.avalanche=''}
 
          },
          function failure(response) {
