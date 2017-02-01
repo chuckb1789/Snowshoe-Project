@@ -43,7 +43,7 @@ app.get('/forecast/38.911024,-107.031255', function(req,res) {
 
 
 //==================ROUTE FOR INDIAN PEAKS===================
-app.get('/forecast/39.9614, -105.5108', function(req,res) {
+app.get('/forecast/39.9614,-105.5108', function(req,res) {
     request.get(indianPeaksURL,function(error,response,body){
     res.send(body) }) })
 
