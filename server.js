@@ -111,8 +111,8 @@ HTTP.createServer( app ).listen( ports.http );
 // we use try/catch in case the https configuration fails
 try {
     var httpsConfig = { // https://nodejs.org/api/https.html
-         key:  fs.readFileSync('/etc/letsencrypt/live/<your_domain>/privkey.pem'),
-         cert: fs.readFileSync('/etc/letsencrypt/live/<your_domain>/cert.pem')
+         key:  fs.readFileSync('/etc/letsencrypt/live/wwww.projectsnowshoe.com/privkey.pem'),
+         cert: fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/cert.pem')
     };
     HTTPS.createServer( httpsConfig, app ).listen( ports.https );
 } catch (e) {
