@@ -1,14 +1,36 @@
 var express = require('express')
 var app = express()
 var request = require('request');
-console.log(process.env);
+
+// console.log(process.env);
+
 var APP_DIR=process.env.APP_DIR
 var APIKEY =process.env.APIKEY
 
-//logging middleware
+var HTTP = require('http');
+var HTTPS = require('https');
 
+fs = require('fs');
+
+ports = {
+  http: process.env.PORT || 80,
+  https: process.env.PORT_SSL || 443
+};
+
+//MIDDLEWARE THAT WILL REDIRECT ALL TRAFFIC TO HTTPS
+app.all('*', ( req, res, next ) => {
+    if( req.protocol === 'http' ) {
+        res.set('X-Forwarded-Proto','https');
+        res.redirect('https://'+ req.headers.host + req.url);
+    } else {
+        next();
+    }
+});
+
+//LOGGING MIDDLEWARE
 var logger = require('morgan')
 app.use(logger('dev'))
+
 
 //=================ROUTE VARIABLES==========================
 crestedURL = 'https://api.darksky.net/forecast/'+APIKEY+'/38.911024,-107.031255';
@@ -82,7 +104,17 @@ app.get('/forecast/39.8472,-105.9117', function(req,res) {
 console.log(APP_DIR);
 app.use(express.static(APP_DIR))
 
-var PORT = 8080;
-app.listen(PORT, function () {
- console.log('web server listening on port', PORT)
-})
+// start an http server listening on the default port
+HTTP.createServer( app ).listen( ports.http );
+
+// start an https server listening on the default port
+// we use try/catch in case the https configuration fails
+try {
+    var httpsConfig = { // https://nodejs.org/api/https.html
+         key:  fs.readFileSync('/etc/letsencrypt/live/<your_domain>/privkey.pem'),
+         cert: fs.readFileSync('/etc/letsencrypt/live/<your_domain>/cert.pem')
+    };
+    HTTPS.createServer( httpsConfig, app ).listen( ports.https );
+} catch (e) {
+    console.error('Could not HTTPS server:', e);
+}
