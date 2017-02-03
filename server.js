@@ -1,7 +1,7 @@
 var express = require('express')
 var app = express()
 var request = require('request');
-
+console.log(process.env);
 var APP_DIR=process.env.APP_DIR
 var APIKEY =process.env.APIKEY
 
@@ -26,7 +26,6 @@ rmnpURL = 'https://api.darksky.net/forecast/'+APIKEY+'/40.3292,-105.5933';
 steamboatURL = 'https://api.darksky.net/forecast/'+APIKEY+'/40.3847,-106.6117';
 
 wpURL = 'https://api.darksky.net/forecast/'+APIKEY+'/39.8472,-105.9117';
-
 
 //==================ROUTE FOR CRESTEDBUTTE===================
 
@@ -80,9 +79,10 @@ app.get('/forecast/39.8472,-105.9117', function(req,res) {
     res.send(body) }) })
 
 
-
+console.log(APP_DIR);
 app.use(express.static(APP_DIR))
 
-app.listen(80, function () {
- console.log('web server listening on port 80')
+var PORT = 8080;
+app.listen(PORT, function () {
+ console.log('web server listening on port', PORT)
 })

@@ -2,7 +2,7 @@
   "name": "snowshoeproject",
   "version": "1.0.0",
   "description": "snowshoe application",
-  "main": "main.js",
+  "main": "server.js",
   "directories": {
     "example": "example"
   },
