@@ -2,7 +2,7 @@ var express = require('express')
 var app = express()
 var request = require('request');
 
-// console.log(process.env);
+console.log(process.env);
 
 var APP_DIR=process.env.APP_DIR
 var APIKEY =process.env.APIKEY
@@ -105,7 +105,7 @@ console.log(APP_DIR);
 app.use(express.static(APP_DIR))
 
 // start an http server listening on the default port
-HTTP.createServer( app ).listen( ports.http );
+//HTTP.createServer(app).listen(ports.http);
 
 // start an https server listening on the default port
 try {
