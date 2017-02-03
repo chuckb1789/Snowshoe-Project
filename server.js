@@ -108,11 +108,10 @@ app.use(express.static(APP_DIR))
 HTTP.createServer( app ).listen( ports.http );
 
 // start an https server listening on the default port
-// we use try/catch in case the https configuration fails
 try {
     var httpsConfig = { // https://nodejs.org/api/https.html
-         key:  fs.readFileSync('/etc/letsencrypt/live/wwww.projectsnowshoe.com/privkey.pem'),
-         cert: fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/cert.pem')
+         key:  fs.readFileSync('/etc/letsencrypt/keys/0000_key-certbot.pem'),
+         cert: fs.readFileSync('/etc/letsencrypt/csr/0000_csr-certbot.pem')
     };
     HTTPS.createServer( httpsConfig, app ).listen( ports.https );
 } catch (e) {
