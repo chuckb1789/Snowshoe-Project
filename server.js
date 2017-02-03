@@ -2,7 +2,7 @@ var express = require('express')
 var app = express()
 var request = require('request');
 
-console.log(process.env);
+// console.log(process.env);
 
 var APP_DIR=process.env.APP_DIR
 var APIKEY =process.env.APIKEY
@@ -13,7 +13,7 @@ var HTTPS = require('https');
 fs = require('fs');
 
 ports = {
-  http: process.env.PORT || 80,
+  http: process.env.PORT || 8080,
   https: process.env.PORT_SSL || 443
 };
 
@@ -105,13 +105,13 @@ console.log(APP_DIR);
 app.use(express.static(APP_DIR))
 
 // start an http server listening on the default port
-//HTTP.createServer(app).listen(ports.http);
+HTTP.createServer(app).listen(ports.http);
 
 // start an https server listening on the default port
 try {
     var httpsConfig = { // https://nodejs.org/api/https.html
-         key:  fs.readFileSync('/etc/letsencrypt/keys/0000_key-certbot.pem'),
-         cert: fs.readFileSync('/etc/letsencrypt/csr/0000_csr-certbot.pem')
+         key:  fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/privkey.pem'),
+         cert: fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/cert.pem')
     };
     HTTPS.createServer( httpsConfig, app ).listen( ports.https );
 } catch (e) {
