@@ -13,7 +13,7 @@ var HTTPS = require('https');
 fs = require('fs');
 
 ports = {
-  http: process.env.PORT || 8080,
+  http: process.env.PORT || 80,
   https: process.env.PORT_SSL || 443
 };
 
