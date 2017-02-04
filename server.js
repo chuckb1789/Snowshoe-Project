@@ -104,6 +104,12 @@ app.get('/forecast/39.8472,-105.9117', function(req,res) {
 app.get('/', function(req, res){
     res.sendFile("index.html", { root: './Public/html' })
 });
+
+//==================ROUTE FOR DISCOVER PAGE=================
+app.get('/discover', function(req, res) {
+    res.sendFile("discover.html", { root: './Public/html'})
+});
+
 console.log(APP_DIR);
 app.use(express.static('./Public'))
 

@@ -56,7 +56,7 @@
     vertical-align:middle;
 }
 
-.dimg_1-1 { background-image:url('./images/currentTempCB.png')
+.dimg_1-1 { background-image:url('../images/currentTempCB.png')
 }
 .numbers{
     font-weight:900;
@@ -64,7 +64,7 @@
     color: white;
 }
 .dimg_1-2 {
-  background-image: url('./images/dailySummaryCB.png')
+  background-image: url('../images/dailySummaryCB.png')
 }
 .summary {
   font-size: 2vw;
@@ -72,7 +72,7 @@
   text-align: left;
 }
 .dimg_1-3 {
-  background-image: url('./images/temperatureRange.png');
+  background-image: url('../images/temperatureRange.png');
 }
 .twoNumbers {
   font-weight: 600;
@@ -80,7 +80,7 @@
   color: white;
 }
 .dimg_2-1 {
-  background-image:url('./images/visibility.png');
+  background-image:url('../images/visibility.png');
 }
 
 .twitter-timeline {
@@ -88,34 +88,34 @@
   height: 100%;
 }
 .img_2-2CB {
-  background-image:url('./images/crestedButte.png');
+  background-image:url('../images/crestedButte.png');
 }
 .img_2-2Frisco {
-  background-image: url('./images/frisco.png')
+  background-image: url('../images/frisco.png')
 }
 .img_2-2Indian {
-  background-image: url('./images/indianPeaks.png');
+  background-image: url('../images/indianPeaks.png');
 }
 .img_2-2Kenosha {
-  background-image: url('./images/kenoshaPass.png');
+  background-image: url('../images/kenoshaPass.png');
 }
 .img_2-2Mosquito {
-  background-image: url('./images/mosquitoPass.png');
+  background-image: url('../images/mosquitoPass.png');
 }
 .img_2-2RMNP {
-  background-image: url('./images/rmnp.png');
+  background-image: url('../images/rmnp.png');
 }
 .img_2-2Steamboat {
-  background-image: url('./images/steamboatSprings.png');
+  background-image: url('../images/steamboatSprings.png');
 }
 .img_2-2WP {
-  background-image: url('./images/winterPark.png');
+  background-image: url('../images/winterPark.png');
 }
 .fimg_2-2 {
-  background-image: url('./images/findTile.png')
+  background-image: url('../images/findTile.png')
 }
 .dimg_2-3 {
-  background-image:url('./images/avalancheConditions.png');
+  background-image:url('../images/avalancheConditions.png');
 }
 .conditions {
   font-size: 2vw;
@@ -123,13 +123,13 @@
   text-align: center;
 }
 .dimg_3-1 {
-  background-image:url('./images/snowpackTotalCB.png');
+  background-image:url('../images/snowpackTotalCB.png');
 }
 .dimg_3-2 {
-  background-image:url('./images/last24hoursCB.png');
+  background-image:url('../images/last24hoursCB.png');
 }
 .dimg_3-3{
-  background-image:url('./images/snowConditionsCB.png');
+  background-image:url('../images/snowConditionsCB.png');
 }
 .snowConditions {
   font-size: 4vw;
