@@ -100,9 +100,12 @@ app.get('/forecast/39.8472,-105.9117', function(req,res) {
     request.get(wpURL,function(error,response,body){
     res.send(body) }) })
 
-
+//==================ROUTE FOR MAIN PAGE=====================
+app.get('/', function(req, res){
+    res.sendFile("index.html", { root: './Public/html' })
+});
 console.log(APP_DIR);
-app.use(express.static(APP_DIR))
+app.use(express.static('./Public'))
 
 // start an http server listening on the default port
 HTTP.createServer(app).listen(ports.http);
