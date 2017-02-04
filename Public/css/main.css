@@ -133,6 +133,11 @@
   transition: all 0.5s;
 }*/
 
+.maintenance {
+  display: block;
+  background-image: url('../images/underMaintenance.png');
+}
+
 .title {
   display: block;
   background-image: url('../images/title.png');
