@@ -110,6 +110,11 @@ app.get('/discover', function(req, res) {
     res.sendFile("discover.html", { root: './Public/html'})
 });
 
+//==================ROUTE FOR CRESTED BUTTE PAGE=================
+app.get('/discover/crestedbutte', function(req, res) {
+    res.sendFile("crestedButte.html", { root : './Public/html'})
+});
+
 console.log(APP_DIR);
 app.use(express.static('./Public'))
 
