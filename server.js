@@ -114,6 +114,7 @@ try {
          cert: fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/cert.pem')
     };
     HTTPS.createServer( httpsConfig, app ).listen( ports.https );
+    console.log("Server up and running via HTTPS");
 } catch (e) {
     console.error('Could not HTTPS server:', e);
 }
