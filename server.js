@@ -110,9 +110,49 @@ app.get('/discover', function(req, res) {
     res.sendFile("discover.html", { root: './Public/html'})
 });
 
-//==================ROUTE FOR CRESTED BUTTE PAGE=================
+//=================ROUTE FOR FIND PAGE======================
+app.get('/find', function(req, res) {
+    res.sendFile("find.html", { root : './Public/html'})
+});
+
+//==================ROUTE FOR CRESTED BUTTE PAGE============
 app.get('/discover/crestedbutte', function(req, res) {
     res.sendFile("crestedButte.html", { root : './Public/html'})
+});
+
+//==================ROUTE FOR FRISCO PAGE============
+app.get('/discover/frisco', function(req, res) {
+    res.sendFile("frisco.html", { root : './Public/html'})
+});
+
+//==================ROUTE FOR INDIAN PEAKS PAGE============
+app.get('/discover/indianpeaks', function(req, res) {
+    res.sendFile("indiapeaks.html", { root : './Public/html'})
+});
+
+//==================ROUTE FOR KENOSHA PASS PAGE============
+app.get('/discover/kenosha', function(req, res) {
+    res.sendFile("kenosha.html", { root : './Public/html'})
+});
+
+//==================ROUTE FOR MOSQUITO PASS PAGE============
+app.get('/discover/mosquito', function(req, res) {
+    res.sendFile("mosquito.html", { root : './Public/html'})
+});
+
+//==================ROUTE FOR RMNP PAGE============
+app.get('/discover/rmnp', function(req, res) {
+    res.sendFile("rmnp.html", { root : './Public/html'})
+});
+
+//==================ROUTE FOR STEAMBOAT PAGE============
+app.get('/discover/steamboat', function(req, res) {
+    res.sendFile("steamboat.html", { root : './Public/html'})
+});
+
+//==================ROUTE FOR WINTER PARK PAGE============
+app.get('/discover/wp', function(req, res) {
+    res.sendFile("wp.html", { root : './Public/html'})
 });
 
 console.log(APP_DIR);
