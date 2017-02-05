@@ -148,7 +148,7 @@
   position: relative;
   width: 92.5%;
   padding-bottom: 30%;
-  transform: translateY(-30%);
+  transform: translateY(-38%);
   margin: 5%;
   background-position:center center;
   background-repeat:no-repeat;
@@ -159,7 +159,7 @@
   position: relative;
   width: 30%;
   padding-bottom : 30%; /* = width for a 1:1 aspect ratio */
-  transform: translateY(-45%);
+  transform: translateY(-55%);
   margin:3.66%;
   background-position:center center;
   background-repeat:no-repeat;
