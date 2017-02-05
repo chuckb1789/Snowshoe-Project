@@ -151,7 +151,7 @@ app.get('/discover/Steamboat', function(req, res) {
 });
 
 //==================ROUTE FOR WINTER PARK PAGE============
-app.get('/discover/WP', function(req, res) {
+app.get('/discover/WinterPark', function(req, res) {
     res.sendFile("wp.html", { root : './Public/html'})
 });
 
