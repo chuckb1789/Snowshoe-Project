@@ -120,7 +120,7 @@ app.get('/discover/CrestedButte', function(req, res) {
     res.sendFile("crestedButte.html", { root : './Public/html'})
 });
 
-//==================ROUTE FOR FRISCO PAGE============
+//==================ROUTE FOR FRISCO PAGE===================
 app.get('/discover/Frisco', function(req, res) {
     res.sendFile("frisco.html", { root : './Public/html'})
 });
