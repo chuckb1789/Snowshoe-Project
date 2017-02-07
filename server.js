@@ -1,7 +1,15 @@
 var express = require('express')
 var app = express()
 var request = require('request');
+var mongoose = require('mongoose');
 
+mongoose.connect('mongodb://localhost/ProjectSnowshoe', (err) => {
+  if(err) {
+    console.log("Bad news:", err)
+  } else {
+    console.log("Mongoose connected!")
+  }
+});
 // console.log(process.env);
 
 var APP_DIR=process.env.APP_DIR
@@ -13,7 +21,7 @@ var HTTPS = require('https');
 fs = require('fs');
 
 ports = {
-  http: process.env.PORT || 80,
+  http: process.env.PORT || 8080,
   https: process.env.PORT_SSL || 443
 };
 
@@ -30,9 +38,23 @@ app.all('*', ( req, res, next ) => {
 //LOGGING MIDDLEWARE
 var logger = require('morgan')
 app.use(logger('dev'))
+//=================API CALLS================================
 
+app.get('/', function (req, res) {
+    // request(URL, callback) takes the parameters for the API URL and a callback function
+    // this API call will return result=[{album, track, lyrics}...]
+    request('https://api.darksky.net/forecast/'+process.env.APIKEY+'/38.911024,-107.031255', function (err, response, body) {
+        var parseBody = JSON.parse(body)
+        // response.result is an array of objects with {album, title, lyrics}
+        // map the list of albums to be a list of album titles
+        var weather = parseBody.result.map
+        })
+        console.log(weather);
+
+    });
 
 //=================ROUTE VARIABLES==========================
+
 crestedURL = 'https://api.darksky.net/forecast/'+APIKEY+'/38.911024,-107.031255';
 
 friscoURL = 'https://api.darksky.net/forecast/'+APIKEY+'/39.7292,-105.9047';
@@ -48,6 +70,8 @@ rmnpURL = 'https://api.darksky.net/forecast/'+APIKEY+'/40.3292,-105.5933';
 steamboatURL = 'https://api.darksky.net/forecast/'+APIKEY+'/40.3847,-106.6117';
 
 wpURL = 'https://api.darksky.net/forecast/'+APIKEY+'/39.8472,-105.9117';
+
+
 
 //==================ROUTE FOR CRESTEDBUTTE===================
 
@@ -159,16 +183,28 @@ console.log(APP_DIR);
 app.use(express.static('./Public'))
 
 // start an http server listening on the default port
+
 HTTP.createServer(app).listen(ports.http);
 
 // start an https server listening on the default port
-try {
-    var httpsConfig = { // https://nodejs.org/api/https.html
-         key:  fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/privkey.pem'),
-         cert: fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/cert.pem')
-    };
-    HTTPS.createServer( httpsConfig, app ).listen( ports.https );
-    console.log("Server up and running via HTTPS");
-} catch (e) {
-    console.error('Could not HTTPS server:', e);
-}
+
+var PORT = process.env.PORT || 8080
+
+app.connect(PORT, function(err) {
+  if (err) {
+    console.log("There was an error connecting:", err);
+  } else {
+    console.log("Connection up and running on port", PORT);
+  }
+});
+
+// try {
+//     var httpsConfig = { // https://nodejs.org/api/https.html
+//          key:  fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/privkey.pem'),
+//          cert: fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/cert.pem')
+//     };
+//     HTTPS.createServer( httpsConfig, app ).listen( ports.https );
+//     console.log("Server up and running via HTTPS");
+// } catch (e) {
+//     console.error('Could not HTTPS server:', e);
+// }
