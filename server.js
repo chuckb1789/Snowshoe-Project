@@ -45,8 +45,6 @@ app.get('/', function (req, res) {
     // this API call will return result=[{album, track, lyrics}...]
     request('https://api.darksky.net/forecast/'+process.env.APIKEY+'/38.911024,-107.031255', function (err, response, body) {
         var parseBody = JSON.parse(body)
-        // response.result is an array of objects with {album, title, lyrics}
-        // map the list of albums to be a list of album titles
         var weather = parseBody.result.map
         })
         console.log(weather);
@@ -198,13 +196,13 @@ app.connect(PORT, function(err) {
   }
 });
 
-// try {
-//     var httpsConfig = { // https://nodejs.org/api/https.html
-//          key:  fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/privkey.pem'),
-//          cert: fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/cert.pem')
-//     };
-//     HTTPS.createServer( httpsConfig, app ).listen( ports.https );
-//     console.log("Server up and running via HTTPS");
-// } catch (e) {
-//     console.error('Could not HTTPS server:', e);
-// }
+try {
+    var httpsConfig = { // https://nodejs.org/api/https.html
+         key:  fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/privkey.pem'),
+         cert: fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/cert.pem')
+    };
+    HTTPS.createServer( httpsConfig, app ).listen( ports.https );
+    console.log("Server up and running via HTTPS");
+} catch (e) {
+    console.error('Could not HTTPS server:', e);
+}
