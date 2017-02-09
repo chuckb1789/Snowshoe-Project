@@ -1,6 +1,12 @@
-var express = require('express')
-var app = express()
+var express = require('express');
+var app = express();
 var request = require('request');
+
+//LOGGING MIDDLEWARE
+var logger = require('morgan');
+
+app.use(logger('dev'));
+
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/ProjectSnowshoe', (err) => {
@@ -25,6 +31,7 @@ ports = {
   https: process.env.PORT_SSL || 443
 };
 
+
 //MIDDLEWARE THAT WILL REDIRECT ALL TRAFFIC TO HTTPS
 app.all('*', ( req, res, next ) => {
     if( req.protocol === 'http' ) {
@@ -35,9 +42,7 @@ app.all('*', ( req, res, next ) => {
     }
 });
 
-//LOGGING MIDDLEWARE
-var logger = require('morgan')
-app.use(logger('dev'))
+
 //=================API CALLS================================
 
 app.get('/', function (req, res) {
