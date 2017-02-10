@@ -37,6 +37,7 @@ app.all('*', ( req, res, next ) => {
     if( req.protocol === 'http' ) {
         res.set('X-Forwarded-Proto','https');
         res.redirect('https://'+ req.headers.host + req.url);
+        console.log("MIDDLEWARE HTTP TO HTTPS:", req);
     } else {
         next();
     }
