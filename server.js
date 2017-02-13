@@ -7,15 +7,15 @@ var logger = require('morgan');
 
 app.use(logger('dev'));
 
-var mongoose = require('mongoose');
+//var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/ProjectSnowshoe', (err) => {
-  if(err) {
-    console.log("Bad news:", err)
-  } else {
-    console.log("Mongoose connected!")
-  }
-});
+//mongoose.connect('mongodb://localhost/ProjectSnowshoe', (err) => {
+ // if(err) {
+ //   console.log("Bad news:", err)
+ // } else {
+ //   console.log("Mongoose connected!")
+ // }
+//});
 // console.log(process.env);
 
 var APP_DIR=process.env.APP_DIR
@@ -34,7 +34,7 @@ ports = {
 
 //MIDDLEWARE THAT WILL REDIRECT ALL TRAFFIC TO HTTPS
 app.all('*', ( req, res, next ) => {
-    if( req.protocol === 'http' ) {
+    if( req.protocol === 'http://' ) {
         res.set('X-Forwarded-Proto','https');
         res.redirect('https://'+ req.headers.host + req.url);
         console.log("MIDDLEWARE HTTP TO HTTPS:", req);
@@ -46,16 +46,16 @@ app.all('*', ( req, res, next ) => {
 
 //=================API CALLS================================
 
-app.get('/', function (req, res) {
+//app.get('/', function (req, res) {
     // request(URL, callback) takes the parameters for the API URL and a callback function
     // this API call will return result=[{album, track, lyrics}...]
-    request('https://api.darksky.net/forecast/'+process.env.APIKEY+'/38.911024,-107.031255', function (err, response, body) {
-        var parseBody = JSON.parse(body)
-        var weather = parseBody.result.map
-        })
-        console.log(weather);
+   // request('https://api.darksky.net/forecast/'+process.env.APIKEY+'/38.911024,-107.031255', function (err, response, body) {
+       // var parseBody = JSON.parse(body)
+       // var weather = parseBody.result.map
+       // })
+       // console.log(weather);
 
-    });
+  //  });
 
 //=================ROUTE VARIABLES==========================
 
@@ -192,21 +192,24 @@ HTTP.createServer(app).listen(ports.http);
 
 // start an https server listening on the default port
 
-var PORT = process.env.PORT || 8080
+//var PORT = process.env.PORT || 8080
 
-app.connect(PORT, function(err) {
-  if (err) {
-    console.log("There was an error connecting:", err);
-  } else {
-    console.log("Connection up and running on port", PORT);
-  }
-});
+//app.connect(PORT, function(err) {
+// if (err) {
+//    console.log("There was an error connecting:", err);
+//  } else {
+//    console.log("Connection up and running on port", PORT);
+//  }
+//});
 
 try {
     var httpsConfig = { // https://nodejs.org/api/https.html
          key:  fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/privkey.pem'),
-         cert: fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/cert.pem')
-    };
+         cert: fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/cert.pem'),
+   	key:  fs.readFileSync('/etc/letsencrypt/live/projectsnowshoe.com/privkey.pem'),
+         cert: fs.readFileSync('/etc/letsencrypt/live/projectsnowshoe.com/cert.pem')
+
+ };
     HTTPS.createServer( httpsConfig, app ).listen( ports.https );
     console.log("Server up and running via HTTPS");
 } catch (e) {

@@ -21,6 +21,9 @@
   "homepage": "https://github.com/chuckb1789/Snowshoe-Project#readme",
   "dependencies": {
     "express": "^4.14.1",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "https": "^1.0.0",
     "mongoose": "^4.8.1",
     "morgan": "^1.7.0",
     "node": "0.0.0",
