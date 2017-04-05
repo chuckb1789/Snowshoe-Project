@@ -26,10 +26,10 @@ var HTTPS = require('https');
 
 fs = require('fs');
 
-ports = {
-  http: process.env.PORT || 8080,
-  https: process.env.PORT_SSL || 443
-};
+// ports = {
+//   http: process.env.PORT || 8080,
+//   https: process.env.PORT_SSL || 443
+// };
 
 
 //MIDDLEWARE THAT WILL REDIRECT ALL TRAFFIC TO HTTPS
@@ -188,30 +188,30 @@ app.use(express.static('./Public'))
 
 // start an http server listening on the default port
 
-HTTP.createServer(app).listen(ports.http);
+// HTTP.createServer(app).listen(ports.http);
 
 // start an https server listening on the default port
 
-//var PORT = process.env.PORT || 8080
+var PORT = process.env.PORT || 8080
 
-//app.connect(PORT, function(err) {
-// if (err) {
-//    console.log("There was an error connecting:", err);
-//  } else {
-//    console.log("Connection up and running on port", PORT);
-//  }
-//});
+app.listen(PORT, function(err) {
+if (err) {
+   console.log("There was an error connecting:", err);
+ } else {
+   console.log("Connection up and running on port", PORT);
+ }
+});
 
-try {
-    var httpsConfig = { // https://nodejs.org/api/https.html
-         key:  fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/privkey.pem'),
-         cert: fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/cert.pem'),
-   	key:  fs.readFileSync('/etc/letsencrypt/live/projectsnowshoe.com/privkey.pem'),
-         cert: fs.readFileSync('/etc/letsencrypt/live/projectsnowshoe.com/cert.pem')
-
- };
-    HTTPS.createServer( httpsConfig, app ).listen( ports.https );
-    console.log("Server up and running via HTTPS");
-} catch (e) {
-    console.error('Could not HTTPS server:', e);
-}
+// try {
+//     var httpsConfig = { // https://nodejs.org/api/https.html
+//          key:  fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/privkey.pem'),
+//          cert: fs.readFileSync('/etc/letsencrypt/live/www.projectsnowshoe.com/cert.pem'),
+//    	key:  fs.readFileSync('/etc/letsencrypt/live/projectsnowshoe.com/privkey.pem'),
+//          cert: fs.readFileSync('/etc/letsencrypt/live/projectsnowshoe.com/cert.pem')
+//
+//  };
+//     HTTPS.createServer( httpsConfig, app ).listen( ports.https );
+//     console.log("Server up and running via HTTPS");
+// } catch (e) {
+//     console.error('Could not HTTPS server:', e);
+// }

@@ -1,4 +1,3 @@
-/*@import url(http://fonts.googleapis.com/css?family=Lato:400,900);*/
 
 .body {
   background-color: rgb(83,68,73);
@@ -11,6 +10,7 @@
   text-align: center;
   transform: translateY(-50%);
 }
+
 .information {
   display: inline-block;
   position: relative;
@@ -25,9 +25,6 @@
   background-color: gray;
 }
 
-.body {
-  background-color: rgb(83,68,73);
-}
 .square {
     float:left;
     position: relative;
@@ -37,7 +34,12 @@
     background-position:center center;
     background-repeat:no-repeat;
     background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
+    border-color: gray;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 10px;
 }
+
 .content {
     position:absolute;
     height:90%; /* = 100% - 2*5% padding */
